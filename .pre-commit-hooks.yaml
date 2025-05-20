@@ -1,0 +1,15 @@
+- id: dclint
+  name: DCLint
+  description: Validate and enforce best practices in Docker Compose files.
+  entry: dclint
+  language: node
+  additional_dependencies: [ "dclint@2.2.1" ]
+  types: [ yaml ]
+  files: ^(docker-)?compose\.ya?ml$
+- id: dclint-docker
+  name: DCLint via Docker
+  description: Validate and enforce best practices in Docker Compose files.
+  language: docker_image
+  entry: zavoloklom/dclint:2.2.1
+  types: [ yaml ]
+  files: ^(docker-)?compose\.ya?ml$
