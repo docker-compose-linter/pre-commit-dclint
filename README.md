@@ -15,7 +15,7 @@ Add the following to your `.pre-commit-config.yaml`:
 ```yaml
 repos:
   - repo: https://github.com/docker-compose-linter/pre-commit-dclint
-    rev: v2.2.2  # Matches the dclint version, use the sha or tag you want to point at
+    rev: v3.0.0  # Matches the dclint version, use the sha or tag you want to point at
     hooks:
       - id: dclint
         # Optional: regex override for compose files
@@ -31,7 +31,7 @@ If you prefer not to install Node.js, you can run dclint via Docker:
 ```yaml
 repos:
 - repo: https://github.com/docker-compose-linter/pre-commit-dclint
-  rev: v2.2.2 # Matches the dclint version, use the sha or tag you want to point at
+  rev: v3.0.0 # Matches the dclint version, use the sha or tag you want to point at
   hooks:
     - id: dclint-docker
       # Optional: regex override for compose files
