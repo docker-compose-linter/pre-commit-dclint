@@ -3,6 +3,7 @@
   description: Validate and enforce best practices in Docker Compose files.
   entry: dclint
   language: node
+  language_version: 22.15.0
   additional_dependencies: [ "dclint@3.0.0" ]
   types: [ yaml ]
   files: ^(docker-)?compose\.ya?ml$
