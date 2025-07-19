@@ -30,15 +30,28 @@ If you prefer not to install Node.js, you can run dclint via Docker:
 
 ```yaml
 repos:
-- repo: https://github.com/docker-compose-linter/pre-commit-dclint
-  rev: v3.0.0 # Matches the dclint version, use the sha or tag you want to point at
-  hooks:
-    - id: dclint-docker
-      # Optional: regex override for compose files
-      files: ^(docker-)?compose\.ya?ml$
-      # Optional: enable autofix on commit
-      args: [--fix]
+  - repo: https://github.com/docker-compose-linter/pre-commit-dclint
+    rev: v3.0.0 # Matches the dclint version, use the sha or tag you want to point at
+    hooks:
+      - id: dclint-docker
+        # Optional: regex override for compose files
+        files: ^(docker-)?compose\.ya?ml$
+        # Optional: enable autofix on commit
+        args: [ --fix ]
 ```
+
+## CLI Arguments
+
+For a full list of supported CLI arguments, see
+the [official documentation](https://github.com/zavoloklom/docker-compose-linter/blob/main/docs/cli.md).
+
+Note that the `-r` (or `--recursive`) flag does not influence how pre-commit selects files to run hooks on. Instead,
+pre-commit uses the `files:` regex to determine which files should trigger the hook. This regex is applied to all
+changed file paths before the hook is invoked. If a file doesn’t match the pattern, the hook won’t run at all —
+regardless of whether `--recursive` is used internally.
+
+In this setup, the `files:` regex is already configured to match nested `compose.yaml` files, so pre-commit can
+correctly detect relevant changes and invoke the hook only when needed.
 
 ## Versioning
 
